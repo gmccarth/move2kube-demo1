@@ -1,0 +1,23 @@
+
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+    creationTimestamp: null
+    labels:
+        move2kube.konveyor.io/service: web
+    name: web
+spec:
+    host: myproject.com
+    path: /web
+    port:
+        targetPort: port-8080
+    to:
+        kind: Service
+        name: web
+        weight: 1
+status:
+    ingress:
+        - {}
+
+...
